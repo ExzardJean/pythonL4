@@ -39,7 +39,7 @@ mes=messi.replace("a","@")
 
 ballon="Messi"
 bal=ballon.upper()
-print(bal)
+# print(bal)
 # print(bal[::-1])   
                                 
 # =================================Exercice7===================================
@@ -78,7 +78,7 @@ for el in range(len(messi2)):
 messi3 = "messi pran 8em balon do li a 36 zan"
 kole = messi3.replace(" ", "") 
 kantitekarakte = len(kole) 
-print(kole)
+# print(kole)
 # print(kantitekarakte)
 
 # ============================================================================
@@ -112,7 +112,11 @@ for el in lis:
 
 # ================================Exercice 4====================================
 # Ou gen yon lis, kreye yon nouvo lis ki fèt ak eleman ki nan endèks ki divizib pa 3 yo sèlman
-
+lisin= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+nouvolis = []
+for el in range(0, len(lisin), 3):
+    nouvolis.append(lisin[el])
+# print(nouvolis)
 
 # ================================Exercice 5====================================
 # Ou gen lis eleman, kreye yon nouvo lis ki gen chak 3 eleman yo gwoupe anndan yon tipl.
@@ -179,9 +183,9 @@ messi= list(diksyone01.values())
 
 # ================================Exercice 2==========================================================
 # Mande itilizatè a, tape yon valè... epi verifye si l gen akolad devan ak dèyè.
-chan = input("rantre yn non ::")
-if chan.startswith("{") and chan.endswith("}"):
-    print("li gn akolad ni devan ni deye")
+# chan = input("rantre yn non ::")
+# if chan.startswith("{") and chan.endswith("}"):
+#     print("li gn akolad ni devan ni deye")
 # print("pa gn akolad")
 
 # =================================Exercice 3=========================================================
@@ -219,5 +223,110 @@ for kle, vale in diksyone5.items():
         nouvodiksyone[kle] = vale
 # print(nouvodiksyone)
 
+# ====================================Exercice 8======================================================
+# Pakouri yon disksyonè, pou w mete l sou fòm lis, kote chak eleman nan disksyonè sa, vin sou fòm tipl(kle, valè) anndan lis la. Ekzanp:
+# >>> {"a":1, "b": 2}
+# >>> [("a",1), ("b",2)]
+
+diksyone= {"a": 1, "b": 2}
+tipl = list(diksyone.items())
+# print(tipl)
+
+# ======================================Exercice 9======================================================
+# Pakouri yon lis tipl, pou w mete l sou fòm diksyonè. Ekzanp:
+# >>> [("a",1), ("b",2)]
+# >>> {"a":1, "b": 2}
+fomdiksyone= [("a", 1), ("b", 2)]
+diksyone= dict(fomdiksyone)
+# print(diksyone)
+
+# =====================================Exercice 10======================================================
+# Kole 2 diksyonè ansanm pou fè youn, kote si gen eleman ki gen menm kle ap konkatene valè, swivan kondisyon sa yo:
+# Antye: ADISYON
+# Chenn, lis, set: KONKATENASYON
+# Rès eleman ki pa gen valè ki gen tip sa yo, pap nan nouvo diksyonè a.
+
+diksyone1 = {"a": 1, "b": [2, 3], "c": "bonjou"}
+diksyone2 = {"b": [4, 5], "d": "ayiti", "y": {6, 7}}
+
+nouvodiksyone = {}
+adisyon = (int,)
+konkatenasyon = (str, list, set)
+for kle, vale in diksyone1.items():
+    if isinstance(vale, adisyon):
+        if kle in diksyone2 and isinstance(diksyone2[kle], adisyon):
+            nouvodiksyone[kle] = vale + diksyone2[kle]
+        else:
+            nouvodiksyone[kle] = vale
+
+for kle, vale in diksyone2.items():
+    if isinstance(vale, adisyon) and kle not in diksyone1:
+        nouvodiksyone[kle] = vale
+        
+for kle, vale in diksyone1.items():
+    if isinstance(vale, konkatenasyon):
+        if kle in diksyone2 and isinstance(diksyone2[kle], konkatenasyon):
+            nouvodiksyone[kle] = vale + diksyone2[kle]
+        else:
+            nouvodiksyone[kle] = vale
+
+for kle, vale in diksyone2.items():
+    if isinstance(vale, konkatenasyon) and kle not in diksyone1:
+        nouvodiksyone[kle] = vale
+print(nouvodiksyone)
+
+# ======================================================================================================
+# =====================================================================================================
+
+# ==========================================Exercice 1=================================================
+# kreye yon fonksyon ki ap pran yon paramèt yon mo, epi li retounen envès la.
+def moinvese(mo):
+    moinvese = mo[::-1]
+    return moinvese
+inves = "Hello"
+recep = moinvese(inves)
+# print(recep)
+
+# =========================================Exercice 2===================================================
+# kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alfabetik.
+import random
+import string
+
+def kodaleyatwa(el):
+    kons = ''.join(random.choice(string.ascii_lowercase) for _ in range(el))
+    return kons
+el = 10
+kòdAleyatwa = kodaleyatwa(el)
+# print(kòdAleyatwa)
+
+# =====================================Exercice 3======================================================
+# kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alfabetik, san repetisyon.
+import random
+import string
+def aleyatwa(n):
+    if n > 26:
+        return "sa ou antre an depase kantite let alfabe an ki c: (26)."
+    
+    kòd = ''.join(random.sample(string.ascii_lowercase, n))
+    return kòd
+n = 10 
+kòd_aleyatwa = aleyatwa(n)
+# print(kòd_aleyatwa)
 
 
+# ===================================Exercice 4========================================================
+# kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alafanimerik, san repetisyon.
+import random
+import string
+def aleyatwa(el):
+    if el > 62:
+        return "saw antre an depase karaktè alafanimerik ki disponib yo ki c: (62)."
+    karakte = string.ascii_letters + string.digits
+    var = ''.join(random.sample(karakte, el))
+    return var
+n = 12 
+x = aleyatwa(n)
+# print(x)
+
+# ===================================Exercice 5=========================================================
+# Ou gen yon lis chenn. Jenere yon SLUG apati chenn nan. Nan yon SLUG, tout karaktè ki akseptab yo se: alfanimerik ak "-"
