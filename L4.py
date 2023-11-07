@@ -330,3 +330,82 @@ x = aleyatwa(n)
 
 # ===================================Exercice 5=========================================================
 # Ou gen yon lis chenn. Jenere yon SLUG apati chenn nan. Nan yon SLUG, tout karaktè ki akseptab yo se: alfanimerik ak "-"
+def jenere():
+    alfanimerik="abcdefghijklmnopqrstuvwxyz1234567890-ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lischenn35="Freedom, nou se Valeyen"
+    lischenn35=lischenn35.replace(" ","-")
+    for element in lischenn35:
+        if element not in alfanimerik:
+            lischenn35=lischenn35.replace(f"{element}","-")
+#     print(lischenn35)
+# jenere()
+
+# =====================================Exercice 6======================================================
+# Kreye yon fonksyon ki ap separe chak lèt nan yon mo ak yon vigil
+def separe(mo):
+    nouvomo=""
+    for el in mo:
+        nouvomo+=f"{el},"
+    return nouvomo
+# mo=input("Antre mo a: ")
+# print(separe(mo))
+
+# ======================================Exercice 7=====================================================
+# Kreye yon fonksyon ki ap kripte yon mo, avèk endèks li nan alfabè a. Chak karaktè dwe separe ak yon tirè.
+# >>> "ALO"
+# >>> "0-11-14"
+def kripte():
+    konve=string.ascii_uppercase
+    print(konve)
+    mo_poukripte=input("Antre mo wap kripte a: ")
+    mo_poukripte=mo_poukripte.upper()
+    mokripte=""
+    for el in mo_poukripte: 
+        mokripte+=f'{konve.index(el)}-'
+    mokripte[-1]=""
+    print(mokripte)
+kripte()
+
+# =========================================Exercice 8==================================================
+# Kreye yon fonksyon ki ap dekripte yon mo ki fèt ak endèks chak lèt nan alfabè a, separe ak yon tirè.
+# >>> "0-11-14"
+# >>> "ALO"
+def dekripte():
+    alfabe=string.ascii_uppercase
+    mo_poudekripte=input("Antre mo wap kripte a: ")
+    mo_poudekripte=mo_poudekripte.split("-")
+    modekripte=""
+    for el in mo_poudekripte:
+        el=int(el)
+        modekripte+=alfabe[el]
+    # print(modekripte)
+# dekripte()
+
+
+# =====================================Exercice 9=====================================================
+# Kreye yon fonksyon ki ap pran 2 paramèt, epi ki pèmite valè yo. Answit li retounen tou 2 valè yo sou fòm Tuple.
+def pemitasyon(val1,val2):
+    temp=val1
+    val1=val2
+    val2=temp
+    fomtuple=(val1,val2)
+    # print(fomtuple)
+# pemitasyon(28,22)
+
+
+# ========================================Exercice 10==================================================
+# Kreye yon fonksyon ki ap pran yon non an paramèt, epi ki retounen inisyal yo. Atansyon ak non konpoze ak tirè yo.
+# ```
+#  >>> "Jean-Baptiste Jean"
+#  >>> "JBJ"
+# ```
+
+def para():
+    non="Jean-Baptiste Jean"
+    non = non.replace("-", " ")
+    non=non.split(" ")
+    inisyal=""
+    for el in non:
+        inisyal+=el[0]
+#     print(inisyal.upper())
+# para()
